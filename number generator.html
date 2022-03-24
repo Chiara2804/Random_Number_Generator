@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+        * {
+            margin: 0;
+        }
+        
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(39, 39, 39);
+        }
+        
+        .header {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            font-family: 'Staatliches', cursive;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        input {
+            width: 40px;
+            height: 30px;
+            font-size: 20px;
+            margin: 20px;
+        }
+        
+        .box {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            color: white;
+            font-family: 'Staatliches', cursive;
+            width: 500px;
+            height: 70px;
+            font-size: 30px;
+        }
+        
+        .spin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 170px;
+            height: 70px;
+            background-color: rgba(211, 3, 3, 0.979);
+            border-radius: 10px;
+            border: none;
+            color: white;
+            font-family: 'Staatliches', cursive;
+            font-size: 40px;
+            margin-left: 20px;
+            margin-top: 20px;
+            box-shadow: 3px 3px #380101d2;
+        }
+        
+        .spin:hover {
+            background-color: rgba(252, 2, 2, 0.979);
+        }
+        
+        .spin:active {
+            top: 3px;
+            position: relative;
+        }
+        
+        .res {
+            width: 100%;
+            height: 100px;
+            color: white;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Staatliches', cursive;
+            font-size: 60px;
+            margin-top: 20px;
+            top: 5px;
+        }
+    </style>
+
+    <script>
+        function random() {
+            var min = parseInt(document.getElementById('min').value);
+            var max = parseInt(document.getElementById('max').value);
+            console.log(min);
+            console.log(max);
+            var result = Math.floor(Math.random() * (max - min + 1) + min);
+            document.getElementById('res').innerHTML = result;
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div class="container back-row-toggle splat-toggle">
+
+        <div class="rain front-row"></div>
+        <div class="rain back-row"></div>
+        <div class="header">Generatore di numeri pseudocasuali</div>
+
+        <div class="box"> Inserisci il numero minimo
+            <input type="Numero minimo" id="min">
+        </div>
+        <div class="box"> Inserisci il numero massimo
+            <input type="Numero massimo" id="max">
+        </div>
+        <button class="spin" onclick="random()">
+            Genera
+        </button>
+
+        <div id="res" class="res"></div>
+
+    </div>
+
+</body>
+
+</html>
